@@ -1,21 +1,30 @@
-body {
+/****** header ******/
+
+/****** navigation ******/
+
+/****** main content ******/
+
+/****** footer ******/
+
+/* html, body {
     margin: 0;
-    height: 100vh;
-}
+    height: 100%;
+} */
 
-canvas {
+/* #c {
+    width: 100%;
+    height: 100%;
     display: block;
+} */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
-h1 {
-    position: absolute;
-    top: 2em;
-    left: 2em;
-    font-family: 'Montserrat';
-    font-size: 7em;
-    text-transform: uppercase;
-    width: auto;
-    line-height: .8em;
-    border: 5px solid black;
-    padding: .2em;
+.container-fluid {
+    background-color: gray;
+    color: midnightblue;
 }
