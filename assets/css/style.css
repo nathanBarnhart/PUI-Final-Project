@@ -28,3 +28,7 @@ body {
     background-color: gray;
     color: midnightblue;
 }
+
+p.container-fluid {
+    color: red;
+}
