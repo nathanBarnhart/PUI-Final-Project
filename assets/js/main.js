@@ -37,7 +37,7 @@ function createCamera() {
         100, // far clipping plane
     );
 
-    camera.position.set(0, 0, 10);
+    camera.position.set(-4, 4, 10);
 
 }
 
@@ -92,10 +92,7 @@ function createRenderer() {
 //performing any updates to scene
 function update() {
 
-    //increasing rotation of mesh on each frame
-    mesh.rotation.z += 0.03;
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
+
 
 }
 
