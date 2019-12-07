@@ -32,7 +32,7 @@ function init() {
 
     //loading texture
     const texture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3a/Missing_square_edit.gif');
-
+    
     //setting color space of texture
     texture.encoding = THREE.sRGBEncoding;
 
@@ -51,7 +51,7 @@ function init() {
     scene.add(mesh);
 
     //creating a directional light
-    const light = new THREE.DirectionalLight(0xffffff, 5.0);
+    const light = new THREE.DirectionalLight(0xffffff, 3.0);
 
     //positioning light
     light.position.set(10, 10, 10);
