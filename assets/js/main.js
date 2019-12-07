@@ -53,7 +53,7 @@ function init() {
     //automatically creates <canvas> element on webpage when loaded by browser
     container.appendChild(renderer.domElement);
 
-    // start the animation loop
+    //starting animation loop
     renderer.setAnimationLoop(() => {
 
         update();
@@ -63,18 +63,17 @@ function init() {
 
 }
 
-// perform any updates to the scene, called once per frame
-// avoid heavy computation here
+//performing any updates to scene
 function update() {
 
-    // increase the mesh's rotation each frame
+    //increasing rotation of mesh on each frame
     mesh.rotation.z += 0.01;
     mesh.rotation.x += 0.01;
     mesh.rotation.y += 0.01;
 
 }
 
-// render, or 'draw a still image', of the scene
+//rendering scene
 function render() {
 
     renderer.render(scene, camera);
@@ -83,20 +82,19 @@ function render() {
 
 function onWindowResize() {
 
-
-    // set the aspect ratio to match the new browser window aspect ratio
+    //setting aspect ratio to match new browser window aspect ratio
     camera.aspect = container.clientWidth / container.clientHeight;
 
-
-    // update the camera's frustum
+    //updating the camera's frustum
     camera.updateProjectionMatrix();
 
-    // update the size of the renderer AND the canvas
+    //updating the size of the renderer AND the canvas
     renderer.setSize(container.clientWidth, container.clientHeight);
+
 }
 
 window.addEventListener('resize', onWindowResize);
 
-// call the init function to set everything up
+//set everything up
 init();
 
