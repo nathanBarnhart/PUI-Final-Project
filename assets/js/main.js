@@ -67,9 +67,9 @@ function init() {
 function update() {
 
     //increasing rotation of mesh on each frame
-    mesh.rotation.z += 0.01;
+    mesh.rotation.z += 0.03;
     mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.01;
+    mesh.rotation.y += 0.02;
 
 }
 
