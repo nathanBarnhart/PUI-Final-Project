@@ -52,12 +52,15 @@ function createControls() {
 function createLights() {
 
     const ambientLight = new THREE.HemisphereLight(
-        0xddeeff, // bright sky color
-        0x202020, // dim ground color
-        3, // intensity
+        0xddeeff, // sky color
+        0x202020, // ground color
+        5, // intensity
     );
 
-    scene.add(ambientLight);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 5);
+    mainLight.position.set(10, 10, 10);
+
+    scene.add(ambientLight, mainLight);
 
 }
 
@@ -91,6 +94,8 @@ function createRenderer() {
 
     renderer.gammaFactor = 2.2;
     renderer.gammaOutput = true;
+
+    renderer.physicallyCorrectLights = true;
 
     container.appendChild(renderer.domElement);
 
