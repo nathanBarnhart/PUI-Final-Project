@@ -64,21 +64,22 @@ function createLights() {
 
 function createMeshes() {
 
-    // we'll create a red materials for the body
-    // and a dark grey material for the details here
+    const geometry = new THREE.BoxBufferGeometry(2, 2, 2);
 
-}
+    const textureLoader = new THREE.TextureLoader();
 
-function createGeometries() {
+    const texture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3a/Missing_square_edit.gif');
 
-    // we'll create geometries for the nose, cabin, chimney, and wheels here
+    texture.encoding = THREE.sRGBEncoding;
+    texture.anisotropy = 16;
 
-}
+    const material = new THREE.MeshStandardMaterial({
+        map: texture,
+    });
 
-function createMeshes() {
+    mesh = new THREE.Mesh(geometry, material);
 
-    const materials = createMaterials();
-    const geometries = createGeometries();
+    scene.add(mesh);
 
 }
 
