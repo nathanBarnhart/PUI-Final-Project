@@ -6,7 +6,11 @@ body {
     /* hiding scroll bars */
     overflow: hidden;
     /* primary text parameters */
-    color: darkslategray;
+    color: #23272b;
+}
+
+.container-fluid {
+    padding: 0px;
 }
 
 /****** header ******/
@@ -18,11 +22,12 @@ h1 {
     /* keep the heading visible above the canvas */
     z-index: 1;
     /* smaller text than default */
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 h2 {
     position: absolute;
+    top: 45px;
     text-align: center;
     width: 100%;
     /* keep the heading visible above the canvas */
@@ -34,11 +39,15 @@ h2 {
 /****** navigation ******/
 
 a {
-    color: darkslategray;
+    color: #23272b;
 }
 
 a:hover {
     color: purple;
+}
+
+#info-button {
+    top: 95px;
 }
 
 /****** main content ******/
