@@ -31,7 +31,7 @@ function init() {
     const textureLoader = new THREE.TextureLoader();
 
     //loading texture
-    const texture = textureLoader.load('https://yt3.ggpht.com/a/AGF-l79uPzO_o7LK3c0vgWO6aeKjNyYPMhKxntA58g=s900-c-k-c0xffffffff-no-rj-mo');
+    const texture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3a/Missing_square_edit.gif');
 
     //setting color space of texture
     texture.encoding = THREE.sRGBEncoding;
