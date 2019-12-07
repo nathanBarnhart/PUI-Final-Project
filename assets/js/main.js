@@ -8,72 +8,84 @@ let mesh;
 
 function init() {
 
-    //reference to the DOM container element for scene
     container = document.querySelector('#scene-container');
 
-    //creating scene
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x8FBCD4);
 
-    //options for perspective camera
-    const fov = 35; //range: 1-79; 40-60 for TV; ~90 for computer screen
-    const aspect = container.clientWidth / container.clientHeight;
-    const near = 0.1;
-    const far = 100; //keep as low as possible for high FPS
+    createCamera();
+    createLights();
+    createMeshes();
+    createRenderer();
 
-    camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.set(0, 0, 10); //origin: 0,0,0; x (-side to +side), y (-down/+up), z (-far/+near)
-
-    //creating geometry
-    const geometry = new THREE.BoxBufferGeometry(2, 2, 2); //'buffer geometry' is loads faster than 'geometry'
-
-    //creating texture loader
-    const textureLoader = new THREE.TextureLoader();
-
-    //loading texture
-    const texture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3a/Missing_square_edit.gif');
-    
-    //setting color space of texture
-    texture.encoding = THREE.sRGBEncoding;
-
-    //reducing blurring at glancing angles
-    texture.anisotropy = 16;
-
-    //creating aterial with a texture as color map
-    const material = new THREE.MeshStandardMaterial({
-        map: texture,
-    });
-
-    //creating mesh
-    mesh = new THREE.Mesh(geometry, material);
-
-    //adding mesh to scene
-    scene.add(mesh);
-
-    //creating a directional light
-    const light = new THREE.DirectionalLight(0xffffff, 3.0);
-
-    //positioning light
-    light.position.set(10, 10, 10);
-
-    //adding light to scene
-    scene.add(light);
-
-    //creating renderer (WebGLRenderer); set width/height
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-
-    //automatically creates <canvas> element on webpage when loaded by browser
-    container.appendChild(renderer.domElement);
-
-    //starting animation loop
     renderer.setAnimationLoop(() => {
 
         update();
         render();
 
     });
+
+}
+
+function createCamera() {
+
+    camera = new THREE.PerspectiveCamera(
+        35, // FOV
+        container.clientWidth / container.clientHeight, // aspect
+
+        0.1, // near clipping plane
+        100, // far clipping plane
+    );
+
+    camera.position.set(0, 0, 10);
+
+}
+
+function createLights() {
+
+    // Create a directional light
+    const light = new THREE.DirectionalLight(0xffffff, 3.0);
+
+    // move the light back and up a bit
+    light.position.set(10, 10, 10);
+
+    // remember to add the light to the scene
+    scene.add(light);
+
+}
+
+function createMeshes() {
+
+    const geometry = new THREE.BoxBufferGeometry(2, 2, 2);
+
+    const textureLoader = new THREE.TextureLoader();
+
+    const texture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3a/Missing_square_edit.gif');
+
+    texture.encoding = THREE.sRGBEncoding;
+    texture.anisotropy = 16;
+
+    const material = new THREE.MeshStandardMaterial({
+        map: texture,
+    });
+
+    mesh = new THREE.Mesh(geometry, material);
+
+    scene.add(mesh);
+
+}
+
+function createRenderer() {
+
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    renderer.gammaFactor = 2.2;
+    renderer.gammaOutput = true;
+
+    container.appendChild(renderer.domElement);
 
 }
 
