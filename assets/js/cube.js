@@ -70,7 +70,9 @@ function createMeshes() {
 
     const texture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3a/Missing_square_edit.gif');
 
+    // specify renderer color space for textures
     texture.encoding = THREE.sRGBEncoding;
+    // enable anisotropic filtering; valid settings: -1, 2, 4, 8, 16
     texture.anisotropy = 16;
 
     const material = new THREE.MeshStandardMaterial({
