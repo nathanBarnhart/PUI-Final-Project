@@ -27,8 +27,22 @@ function init() {
     //creating geometry
     const geometry = new THREE.BoxBufferGeometry(2, 2, 2); //'buffer geometry' is loads faster than 'geometry'
 
-    //creating material with a given color
-    const material = new THREE.MeshStandardMaterial({ color: 0x800080 });
+    //creating texture loader
+    const textureLoader = new THREE.TextureLoader();
+
+    //loading texture
+    const texture = textureLoader.load('https://yt3.ggpht.com/a/AGF-l79uPzO_o7LK3c0vgWO6aeKjNyYPMhKxntA58g=s900-c-k-c0xffffffff-no-rj-mo');
+
+    //setting color space of texture
+    texture.encoding = THREE.sRGBEncoding;
+
+    //reducing blurring at glancing angles
+    texture.anisotropy = 16;
+
+    //creating aterial with a texture as color map
+    const material = new THREE.MeshStandardMaterial({
+        map: texture,
+    });
 
     //creating mesh
     mesh = new THREE.Mesh(geometry, material);
