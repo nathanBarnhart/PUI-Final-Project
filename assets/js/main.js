@@ -2,6 +2,7 @@
 //declaring global variables
 let container;
 let camera;
+let controls;
 let renderer;
 let scene;
 let mesh;
@@ -14,6 +15,7 @@ function init() {
     scene.background = new THREE.Color(0x8FBCD4);
 
     createCamera();
+    createControls();
     createLights();
     createMeshes();
     createRenderer();
@@ -41,16 +43,21 @@ function createCamera() {
 
 }
 
+function createControls() {
+
+    controls = new THREE.OrbitControls(camera, container);
+
+}
+
 function createLights() {
 
-    // Create a directional light
-    const light = new THREE.DirectionalLight(0xffffff, 3.0);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(ambientLight);
 
-    // move the light back and up a bit
-    light.position.set(10, 10, 10);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 1);
+    mainLight.position.set(10, 10, 10);
 
-    // remember to add the light to the scene
-    scene.add(light);
+    scene.add(ambientLight, mainLight);
 
 }
 
