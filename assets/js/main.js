@@ -151,6 +151,11 @@ function update() {
 
     }
 
+    //subtle random rotation animation
+    mesh.rotation.z += 0.001;
+    mesh.rotation.x += 0.001;
+    mesh.rotation.y += 0.001;
+
 }
 
 function render() {
