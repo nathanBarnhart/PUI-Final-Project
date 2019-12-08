@@ -67,3 +67,8 @@ p {
     /* smaller text than default */
     font-size: 0.75rem;
 }
+
+#info {
+    position: absolute;
+    bottom: 40;
+}

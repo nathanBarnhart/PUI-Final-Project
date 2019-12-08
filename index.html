@@ -60,7 +60,9 @@
                     </p>
                     <p>
                         Three.js was originally released by Ricardo Cabello, April 24 2010, and its most current
-                        release is r111 made available <a href="https://twitter.com/threejs_org/status/1199778288320819200" target="_blank">November 27 2019.</a>
+                        release is r111 made available <a
+                            href="https://twitter.com/threejs_org/status/1199778288320819200" target="_blank">November
+                            27 2019.</a>
                     </p>
                     <p>
                         The official website is: <a href="https://threejs.org/" target="_blank">threejs.org</a> <br>
@@ -75,7 +77,9 @@
                         <a href="en.wikipedia.org/wiki/Three.js" target="_blank">Wikipedia: Three.js</a> <br>
                         <a href="https://en.wikipedia.org/wiki/WebGL" target="_blank">Wikipedia: WebGL</a> <br>
                         <a href="https://en.wikipedia.org/wiki/Missing_square_puzzle" target="_blank">Cube Texture from
-                            Wikipedia: "Missing square puzzle"</a>
+                            Wikipedia: "Missing square puzzle"</a> <br>
+                        <a href="https://commons.wikimedia.org/wiki/User:Alvesgaspar">Texture Map Image by Joaquim Alves
+                            Gaspar, and used according to CC BY 2.5</a>
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -90,8 +94,26 @@
 
     </div>
 
+    <footer class="footer">
+        <div id="info">
+            <button id="hemisphereButton" class="mx-auto">toggle hemisphere light</button>
+            <button id="directionalButton" class="mx-auto">toggle directional light</button>
+        </div>
 
-    
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" checked> Active
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2"> Radio
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3"> Radio
+            </label>
+        </div>
+
+    </footer>
+
     <!-- ThreeJS project -->
     <script src="assets/js/main.js"></script>
 
